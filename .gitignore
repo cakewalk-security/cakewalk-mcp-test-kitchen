@@ -1,0 +1,25 @@
+**/bin/
+**/obj/
+**/logs/
+*.user
+*.db
+.DS_Store
+client/node_modules/
+client/dist/
+src/McpTestServer.API/wwwroot/
+docker-compose.override.yml
+temp
+docs/screenshots
+
+# Local secrets and environment
+.env
+.env.*
+appsettings.Local.json
+appsettings.*.local.json
+
+# IDE and tooling
+.vs/
+.idea/
+.vscode/
+*.swp
+TestResults/

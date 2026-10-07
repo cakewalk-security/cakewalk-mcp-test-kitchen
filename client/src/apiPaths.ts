@@ -1,0 +1,16 @@
+export const AUTH_STATUS_PATH = "/api/auth/status";
+export const MANAGEMENT_ME_PATH = "/api/management/me";
+export const MANAGEMENT_ME_SCENARIO_PATH = "/api/management/me/scenario";
+export const MANAGEMENT_ME_SESSIONS_PATH = "/api/management/me/sessions";
+export const MANAGEMENT_ME_SESSIONS_TERMINATE_PATH = "/api/management/me/sessions/terminate";
+export const MANAGEMENT_ME_PAT_PATH = "/api/management/me/pat";
+export const MANAGEMENT_ME_PAT_REGENERATE_PATH = "/api/management/me/pat/regenerate";
+export const MANAGEMENT_ME_ERASE_PATH = "/api/management/me/erase";
+export const MANAGEMENT_SCENARIOS_PATH = "/api/management/scenarios";
+export const MANAGEMENT_OBSERVATIONS_PATH = "/api/management/observations";
+export const MANAGEMENT_OBSERVATIONS_STREAM_PATH = "/api/management/observations/stream";
+export const MANAGEMENT_RUNTIME_PATH = "/api/management/runtime";
+export const MANAGEMENT_RUNTIME_RESET_PATH = "/api/management/runtime/reset";
+export const MANAGEMENT_FEEDBACK_PATH = "/api/management/feedback";
+export const MANAGEMENT_ADMIN_USAGE_PATH = "/api/management/admin/usage";
+export const OBSERVATIONS_STREAM_RECONNECT_MS = 3000;

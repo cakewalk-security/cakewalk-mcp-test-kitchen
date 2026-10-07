@@ -1,0 +1,23 @@
+services:
+  mcp-test-server.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - Database__CONNECTION_STRING=Host=postgres;Port=5432;Database=mcp_test_server;Username=postgres;Password=postgres
+      - McpTestServer__MCP_PAT=local-dev-pat
+      # Optional: set Google OAuth for admin UI login
+      # - INTERNAL_AUTHENTICATION_GOOGLE_CLIENT_ID=...
+      # - INTERNAL_AUTHENTICATION_GOOGLE_CLIENT_SECRET=...
+      # - MCP_TEST_SERVER_OAUTH_PUBLIC_ORIGIN=http://localhost:5094
+      # Optional: Google-signed-in users with this email domain can open /admin
+      # - MCP_TEST_SERVER_ADMIN_EMAIL_DOMAIN=example.com
+      # Optional: set GitHub OAuth when GitHub login is enabled
+      # - INTERNAL_AUTHENTICATION_GITHUB_CLIENT_ID=...
+      # - INTERNAL_AUTHENTICATION_GITHUB_CLIENT_SECRET=...
+      # Optional: public landing page for unauthenticated visitors
+      # - MCP_TEST_SERVER_UNAUTHENTICATED_REDIRECT_URL=https://www.cakewalk.security/mcp-test-kitchen
+      # Optional: set Resend API token for feedback emails
+      # - RESEND_APITOKEN=re_your_api_key_here
+      # - MCP_TEST_SERVER_FEEDBACK_RECIPIENT=feedback@example.com
+    ports:
+      - "5094:8080"

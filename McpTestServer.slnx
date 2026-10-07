@@ -1,0 +1,11 @@
+<Solution>
+  <Project Path="docker-compose.dcproj" Type="Docker Compose" />
+  <Folder Name="/src/">
+    <Project Path="src/McpTestServer.API/McpTestServer.API.csproj" />
+    <Project Path="src/McpTestServer.Infrastructure/McpTestServer.Infrastructure.csproj" />
+    <Project Path="src/McpTestServer.Migrations.PostgreSql/McpTestServer.Migrations.PostgreSql.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/McpTestServer.API.Tests/McpTestServer.API.Tests.csproj" />
+  </Folder>
+</Solution>

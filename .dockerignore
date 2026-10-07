@@ -1,0 +1,21 @@
+# Keep host build output and dependencies out of the image; the Dockerfile restores and builds them.
+**/bin/
+**/obj/
+**/node_modules/
+client/dist/
+src/McpTestServer.API/wwwroot/
+
+# Not needed in the build context
+.git/
+.github/
+.vs/
+.idea/
+.vscode/
+tests/
+docs/
+**/TestResults/
+**/*.user
+**/.env
+**/.env.*
+docker-compose*
+*.md

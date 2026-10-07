@@ -1,0 +1,47 @@
+# Fly.io deployment for the hosted MCP Test Kitchen instance.
+# Forks: change `app`, MCP_TEST_SERVER_CANONICAL_ORIGIN and MCP_TEST_SERVER_LEGACY_HOSTS,
+# and set secrets (DATABASE_URL, MCP_PAT, OAuth credentials) with `fly secrets set`.
+
+app = 'mcp-test-server-cakewalk'
+primary_region = 'ams'
+
+[build]
+  dockerfile = 'src/McpTestServer.API/Dockerfile'
+
+[env]
+  ASPNETCORE_ENVIRONMENT = 'Production'
+  ASPNETCORE_HTTP_PORTS = '8080'
+  ASPNETCORE_URLS = 'http://0.0.0.0:8080'
+  MCP_TEST_SERVER_DATA_PROTECTION_KEYS_PATH = '/app/data-protection-keys'
+  MCP_TEST_SERVER_CANONICAL_ORIGIN = 'https://mcp-test-kitchen.cakewalk.security'
+  MCP_TEST_SERVER_LEGACY_HOSTS = 'mcp-test-server-cakewalk.fly.dev,mcp-test-server.cakewalk.security'
+  # The app is only reachable through Fly's proxy, so its X-Forwarded-For entry is trustworthy.
+  MCP_TEST_SERVER_TRUST_PROXY_FORWARDED_FOR = 'true'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'off'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+  [http_service.concurrency]
+    type = 'connections'
+    hard_limit = 200
+    soft_limit = 100
+
+  [http_service.http_options]
+    idle_timeout = 300
+
+[[http_service.checks]]
+  grace_period = '30s'
+  interval = '15s'
+  method = 'GET'
+  path = '/api/health'
+  timeout = '5s'
+
+[mounts]
+  source = 'dpkeys'
+  destination = '/app/data-protection-keys'
+  initial_size = '1gb'

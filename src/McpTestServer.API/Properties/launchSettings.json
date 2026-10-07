@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5094",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Database__CONNECTION_STRING": "Host=localhost;Port=15433;Database=mcp_test_server;Username=postgres;Password=postgres",
+        "McpTestServer__MCP_PAT": "local-dev-pat",
+        "RESEND_APITOKEN": ""
+      }
+    }
+  }
+}
